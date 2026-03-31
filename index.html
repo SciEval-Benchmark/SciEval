@@ -98,6 +98,44 @@
     .criteria-col li:last-child { border-bottom: none; }
     .criteria-col li strong { color: var(--text); }
 
+    /* Data Preview */
+    .preview-wrapper {
+      border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-top: 20px;
+      background: var(--card-bg); box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+    .preview-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 20px; background: var(--code-bg); border-bottom: 1px solid var(--border);
+    }
+    .preview-header .label { font-weight: 600; font-size: 0.92rem; display: flex; align-items: center; gap: 8px; }
+    .preview-header .label svg { opacity: 0.5; }
+    .preview-header .split-tag {
+      background: #fff; border: 1px solid var(--border); border-radius: 6px;
+      padding: 4px 12px; font-size: 0.82rem; color: var(--text-secondary);
+    }
+    .preview-scroll { overflow-x: auto; }
+    .preview-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; white-space: nowrap; }
+    .preview-table th {
+      position: sticky; top: 0; background: var(--code-bg); padding: 10px 14px;
+      text-align: left; border-bottom: 2px solid var(--border); font-weight: 600;
+    }
+    .preview-table th .type { display: block; font-weight: 400; font-size: 0.75rem; color: var(--text-secondary); }
+    .preview-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); max-width: 320px; overflow: hidden; text-overflow: ellipsis; }
+    .preview-table tbody tr:hover { background: #f8f9ff; }
+    .score-badge {
+      display: inline-block; min-width: 24px; text-align: center; padding: 2px 8px;
+      border-radius: 4px; font-weight: 600; font-size: 0.82rem;
+    }
+    .score-0 { background: #eee; color: #888; }
+    .score-1 { background: #ffcdd2; color: #c62828; }
+    .score-2 { background: #fff9c4; color: #f57f17; }
+    .score-3 { background: #c8e6c9; color: #2e7d32; }
+    .criterion-tag {
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+      font-family: "SF Mono", "Fira Code", monospace; font-size: 0.82rem;
+      background: #e8eaf6; color: var(--primary);
+    }
+
     /* Download */
     .download-section { text-align: center; }
     .download-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 24px 0; }
@@ -238,6 +276,93 @@
             <div class="lbl">Test PDFs</div>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Data Preview -->
+<section>
+  <div class="container">
+    <h2 class="section-title">Dataset Preview</h2>
+    <div class="preview-wrapper">
+      <div class="preview-header">
+        <span class="label">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 010-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9z"/></svg>
+          Sample annotations (8 of 3,549 rows)
+        </span>
+        <span class="split-tag">Split: train</span>
+      </div>
+      <div class="preview-scroll">
+        <table class="preview-table">
+          <thead>
+            <tr>
+              <th>ID <span class="type">string</span></th>
+              <th>File <span class="type">string</span></th>
+              <th>Criterion <span class="type">string</span></th>
+              <th>Score <span class="type">int</span></th>
+              <th>Evidence <span class="type">string</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bodies_Work_lesson_1_I_A</td>
+              <td>Bodies_Work_lesson_1.pdf</td>
+              <td><span class="criterion-tag">I_A</span></td>
+              <td><span class="score-badge score-2">2</span></td>
+              <td>Examples of evidence that learning is driven by making sense of phenomena i...</td>
+            </tr>
+            <tr>
+              <td>Bodies_Work_lesson_1_I_B_1</td>
+              <td>Bodies_Work_lesson_1.pdf</td>
+              <td><span class="criterion-tag">I_B_1</span></td>
+              <td><span class="score-badge score-3">3</span></td>
+              <td>Asking Questions and Defining Problems: Ask questions that arise from caref...</td>
+            </tr>
+            <tr>
+              <td>Cancer_lesson_1_I_B_3</td>
+              <td>Cancer_lesson_1.pdf</td>
+              <td><span class="criterion-tag">I_B_3</span></td>
+              <td><span class="score-badge score-2">2</span></td>
+              <td>Systems and System Models: Models (e.g., physical, mathematical, computer mo...</td>
+            </tr>
+            <tr>
+              <td>Cancer_lesson_1_II_A</td>
+              <td>Cancer_lesson_1.pdf</td>
+              <td><span class="criterion-tag">II_A</span></td>
+              <td><span class="score-badge score-3">3</span></td>
+              <td>Students experience the phenomenon, problems, and investigative phenomenon as...</td>
+            </tr>
+            <tr>
+              <td>Ocean_Plastic_lesson_1_II_C</td>
+              <td>Ocean_Plastic_lesson_1.pdf</td>
+              <td><span class="criterion-tag">II_C</span></td>
+              <td><span class="score-badge score-3">3</span></td>
+              <td>All science information is accurate and grade level appropriate based on the ...</td>
+            </tr>
+            <tr>
+              <td>Hail_rain_lesson_1_II_B</td>
+              <td>Hail_rain_lesson_1.pdf</td>
+              <td><span class="criterion-tag">II_B</span></td>
+              <td><span class="score-badge score-2">2</span></td>
+              <td>Throughout the unit, students are provided with a large number of opportuniti...</td>
+            </tr>
+            <tr>
+              <td>Hail_rain_lesson_1_III_D</td>
+              <td>Hail_rain_lesson_1.pdf</td>
+              <td><span class="criterion-tag">III_D</span></td>
+              <td><span class="score-badge score-3">3</span></td>
+              <td>Students are provided with the appropriate background needed for completing...</td>
+            </tr>
+            <tr>
+              <td>Ocean_Plastic_lesson_1_III_E</td>
+              <td>Ocean_Plastic_lesson_1.pdf</td>
+              <td><span class="criterion-tag">III_E</span></td>
+              <td><span class="score-badge score-3">3</span></td>
+              <td>In Lesson 1 students are involved in learning about each of the CCC and ask q...</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
