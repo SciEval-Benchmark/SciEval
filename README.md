@@ -2,7 +2,7 @@
 
 A benchmark dataset for Automatic Evaluation of K-12 Science Instructional Materials.
 
-**Website:** [https://freeman-gif.github.io/SciEval/](https://freeman-gif.github.io/SciEval/)
+**Website:** (https://freeman-gif.github.io/SciEval/)
 
 ## Dataset
 
